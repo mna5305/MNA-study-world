@@ -20,6 +20,11 @@ jobs:
           mkdir -p www
           cp index.html www/index.html
       - run: npx cap add android
+      - run: |
+          mkdir -p assets
+          cp icon.png assets/icon.png
+          npm install --no-save @capacitor/assets
+          npx capacitor-assets generate --android
       - run: npx cap sync android
       - run: |
           cd android
